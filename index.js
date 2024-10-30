@@ -10,21 +10,21 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 app.get('/', (req, res) => {
-  res.send('Hello World! aaa')
+  res.send('Hello World! xyz')
 })
 
 app.get('/generate-pdf-puppeteer', async (req, res) => {
   const browser = await puppeteer.launch({
     // executablePath: '/usr/bin/chromium-browser',
-    headless: false,
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-gpu',
-        '--single-process',
-        '--no-zygote'
-      ]
+    // headless: true,
+    //   args: [
+    //     '--no-sandbox',
+    //     '--disable-setuid-sandbox',
+    //     '--disable-dev-shm-usage',
+    //     '--disable-gpu',
+    //     '--single-process',
+    //     '--no-zygote'
+    //   ]
   })
   
   const page = await browser.newPage()
