@@ -8,10 +8,10 @@ services:
     container_name: pdf-express
     command: npm run dev
     ports:
-      - "3000:3000"
+      - "8080:8080"
     environment:
       - NODE_ENV=development
-      - PORT=3000
+      - PORT=8080
       # Uncomment if using MongoDB
       # - MONGODB_URI=mongodb://mongodb:27017/your_database
       # Uncomment if using Redis
