@@ -1,0 +1,51 @@
+# version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pdf-express
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      # Uncomment if using MongoDB
+      # - MONGODB_URI=mongodb://mongodb:27017/your_database
+      # Uncomment if using Redis
+      # - REDIS_URL=redis://redis:6379
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped
+    # Uncomment if using MongoDB or Redis
+    # depends_on:
+    #   - mongodb
+    #   - redis
+
+  # Uncomment if you need MongoDB
+  # mongodb:
+  #   image: mongo:latest
+  #   container_name: mongodb
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongodb_data:/data/db
+  #   restart: unless-stopped
+
+  # Uncomment if you need Redis
+  # redis:
+  #   image: redis:alpine
+  #   container_name: redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis_data:/data
+  #   restart: unless-stopped
+
+# Uncomment if using MongoDB or Redis
+# volumes:
+#   mongodb_data:
+#   redis_data:

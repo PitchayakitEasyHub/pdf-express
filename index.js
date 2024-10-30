@@ -10,13 +10,13 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello World! yyy')
 })
 
 app.get('/generate-pdf-puppeteer', async (req, res) => {
   const browser = await puppeteer.launch({
-    executablePath: '/usr/bin/chromium-browser',
-    headless: true,
+    // executablePath: '/usr/bin/chromium-browser',
+    headless: false,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
