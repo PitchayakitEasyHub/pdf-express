@@ -16,15 +16,16 @@ app.get('/', (req, res) => {
 app.get('/generate-pdf-puppeteer', async (req, res) => {
   const browser = await puppeteer.launch({
     // executablePath: '/usr/bin/chromium-browser',
-    headless: "raw",
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-gpu',
-        '--single-process',
-        '--no-zygote'
-      ]
+    headless: "new",
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--no-first-run',
+      '--no-zygote',
+      '--disable-gpu',
+    ]
   })
   
   const page = await browser.newPage()
